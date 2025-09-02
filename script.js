@@ -2,18 +2,17 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 const scoreElement = document.getElementById('score');
-const gridSize = 20; // 每个格子的大小
+const gridSize = 20;
 const canvasSize = canvas.width;
 let score = 0;
 let gameOver = false;
+let gameSpeed = 100; // 默认速度（困难模式）
 
 // --- 游戏元素 ---
-let snake = [
-    { x: 10, y: 10 } // 蛇的初始位置 (单位：格子)
-];
+let snake = [{ x: 10, y: 10 }];
 let food = {};
 let direction = 'right';
-let directionQueue = []; // 方向指令队列，防止快速按键导致180度掉头
+let directionQueue = [];
 
 // --- 初始化 ---
 function initialize() {
@@ -24,7 +23,6 @@ function initialize() {
     gameOver = false;
     updateScore(0);
     placeFood();
-    hideGameOver();
 }
 
 // --- 游戏主循环 ---
@@ -34,6 +32,7 @@ function gameLoop() {
         return;
     }
     
+    // 使用 gameSpeed 变量来控制速度
     setTimeout(() => {
         clearCanvas();
         processDirection();
@@ -42,7 +41,7 @@ function gameLoop() {
         drawSnake();
         checkCollision();
         gameLoop();
-    }, 100); // 游戏速度，数字越小越快
+    }, gameSpeed); // <--- 这里的 100 被替换成了 gameSpeed
 }
 
 // --- 绘图函数 ---

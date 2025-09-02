@@ -7,7 +7,7 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
-    font-family: 'Courier New', Courier, monospace; /* 使用等宽字体，更有游戏感 */
+    font-family: 'Courier New', Courier, monospace;
 }
 
 canvas {
@@ -20,11 +20,29 @@ canvas {
     margin-bottom: 10px;
 }
 
-/* 新增样式 */
-#gameOver {
-    position: absolute;
-    color: red;
-    font-size: 2rem;
-    font-weight: bold;
-    display: none; /* 默认隐藏 */
+/* VVVV 这是新增的样式 VVVV */
+.speed-controls {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 10px; /* 按钮之间的间距 */
 }
+
+.speed-btn {
+    padding: 5px 15px;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #555;
+    color: white;
+    border: 2px solid #777;
+    cursor: pointer;
+    transition: background-color 0.2s; /* 平滑过渡效果 */
+}
+
+.speed-btn:hover {
+    background-color: #777;
+}
+
+.speed-btn.active {
+    background-color: #008cff; /* 激活状态的颜色 */
+    border-color: #fff;
+}
+/* ^^^^ 新增样式结束 ^^^^ */
