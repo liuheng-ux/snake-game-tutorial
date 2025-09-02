@@ -133,6 +133,14 @@ function showGameOver() {
     ctx.fillText('Press Enter to Restart', canvasSize / 2, canvasSize / 2 + 20);
 }
 
+function hideGameOver() {
+    // 实际上我们不需要隐藏任何东西，因为每次游戏循环都会重新绘制整个画布。
+    // 但为了让代码结构完整，我们保留一个空函数或简单的重绘。
+    // 最简单的做法是确保游戏开始时画布是干净的，而 gameLoop 中的 clearCanvas() 已经做到了。
+    // 为了严谨，我们可以在这里什么都不做，或者添加一个标志。
+    // 目前，一个空函数就足以解决 "not defined" 的错误。
+}
+
 // --- 事件监听 ---
 document.addEventListener('keydown', e => {
     const key = e.key;
