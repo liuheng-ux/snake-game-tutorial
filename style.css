@@ -120,6 +120,187 @@ h1 {
     animation: gameOverPulse 1s infinite;
 }
 
+.game-controls {
+    margin: 15px 0;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.control-btn {
+    background: linear-gradient(45deg, #9b59b6, #8e44ad);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.control-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(155, 89, 182, 0.4);
+}
+
+/* 弹窗样式 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: white;
+    font-size: 1.8rem;
+}
+
+.close {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close:hover {
+    color: #ff6b6b;
+}
+
+.modal-body {
+    padding: 25px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.leaderboard-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.1);
+    margin: 10px 0;
+    padding: 15px 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: transform 0.2s ease;
+}
+
+.leaderboard-item:hover {
+    transform: translateX(5px);
+    background: rgba(255,255,255,0.15);
+}
+
+.leaderboard-rank {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffd700;
+    min-width: 40px;
+}
+
+.leaderboard-rank.first {
+    color: #ffd700;
+    text-shadow: 0 0 10px #ffd700;
+}
+
+.leaderboard-rank.second {
+    color: #c0c0c0;
+}
+
+.leaderboard-rank.third {
+    color: #cd7f32;
+}
+
+.leaderboard-info {
+    flex: 1;
+    margin: 0 15px;
+    color: white;
+}
+
+.leaderboard-score {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #4ecdc4;
+}
+
+.leaderboard-difficulty {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 2px;
+}
+
+.leaderboard-date {
+    font-size: 0.8rem;
+    color: #bdc3c7;
+    text-align: right;
+    min-width: 80px;
+}
+
+.no-scores {
+    text-align: center;
+    color: rgba(255,255,255,0.7);
+    font-style: italic;
+    padding: 40px 20px;
+}
+
+/* 滚动条样式 */
+.modal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.3);
+    border-radius: 4px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.5);
+}
+
 /* 响应式设计 */
 @media (max-width: 600px) {
     h1 {
@@ -139,5 +320,19 @@ h1 {
     #gameCanvas {
         width: 350px;
         height: 350px;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+    
+    .game-controls {
+        flex-wrap: wrap;
+    }
+    
+    .control-btn {
+        padding: 8px 15px;
+        font-size: 12px;
     }
 }
