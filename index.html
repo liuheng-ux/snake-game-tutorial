@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snake Game</title>
+    <title>贪吃蛇游戏 - 多难度挑战</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Snake Game</h1>
+    <h1>🐍 贪吃蛇游戏</h1>
     <div id="score">Score: 0</div>
 
-    <!-- VVVV 这是新增的部分 VVVV -->
     <div class="speed-controls">
-        <button class="speed-btn" data-speed="150">简单</button>
-        <button class="speed-btn" data-speed="120">中等</button>
-        <button class="speed-btn active" data-speed="100">困难</button>
-        <button class="speed-btn" data-speed="70">地狱</button>
+        <button class="speed-btn" data-speed="150">🟢 简单</button>
+        <button class="speed-btn" data-speed="120">🟡 中等</button>
+        <button class="speed-btn active" data-speed="100">🔴 困难</button>
+        <button class="speed-btn" data-speed="70">💀 地狱</button>
     </div>
-    <!-- ^^^^ 新增部分结束 ^^^^ -->
 
     <canvas id="gameCanvas" width="400" height="400"></canvas>
     <script src="script.js"></script>
